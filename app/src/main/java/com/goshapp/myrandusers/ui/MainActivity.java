@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.goshapp.myrandusers.MyApplication;
 import com.goshapp.myrandusers.R;
 import com.goshapp.myrandusers.adapter.RecyclerViewAdapter;
+import com.goshapp.myrandusers.data.ProductDao;
 import com.goshapp.myrandusers.di.component.ApplicationComponent;
 import com.goshapp.myrandusers.di.component.DaggerMainActivityComponent;
 import com.goshapp.myrandusers.di.component.MainActivityComponent;
@@ -21,6 +22,8 @@ import com.goshapp.myrandusers.di.qualifier.ApplicationContext;
 import com.goshapp.myrandusers.helpers.CheckConnection;
 import com.goshapp.myrandusers.pojo.RandomUser;
 import com.goshapp.myrandusers.pojo.Result;
+import com.goshapp.myrandusers.repository.DemoDatabase;
+import com.goshapp.myrandusers.repository.ProductRepository;
 import com.goshapp.myrandusers.retrofit.APIInterface;
 
 import java.util.ArrayList;
@@ -45,6 +48,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewAdapt
     private MainActivityComponent mainActivityComponent;
     private ApplicationComponent applicationComponent;
     private CheckConnection checkConnection;
+
+    @Inject
+    public DemoDatabase demoDatabase;
+
+    @Inject
+    public ProductDao productDao;
+
+    @Inject
+    public ProductRepository productRepository;
+
     @Inject
     public RecyclerViewAdapter recyclerViewAdapter;
 
